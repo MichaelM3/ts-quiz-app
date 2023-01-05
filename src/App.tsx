@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react'
 import './App.css'
-import { IUser, isUser, newUser } from './interfaces'
+import { IUser, isUser } from './interfaces'
+import Nav from './components/Nav'
 
 const App: FC = () => {
     const [user, setUser] = useState<IUser | null>(null)
@@ -9,14 +10,15 @@ const App: FC = () => {
     useEffect(() => {
         const foundUser: unknown = localStorage.getItem("user")
         if (isUser(foundUser)) {
-            setUser(foundUser)
+            setUser(JSON.parse(foundUser))
         }
     }, [])
 
-    console.log(user)
+    console.log(user?.username)
 
     return (
         <div className='App'>
+            <Nav user={user} />
         </div>
     )
 }

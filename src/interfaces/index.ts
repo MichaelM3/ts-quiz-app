@@ -5,7 +5,7 @@ export interface IUser {
     age: number;
 }
 
-export const isUser = (foundUser: unknown): foundUser is IUser => {
+export const isUser = (foundUser: unknown): foundUser is string => {
     if (foundUser !== null) {
         return true
     }
@@ -14,3 +14,7 @@ export const isUser = (foundUser: unknown): foundUser is IUser => {
 
 // Test User
 export const newUser: IUser = { username: "Mizzike", firstName: "Michael", lastName: "Munz", age: 28 }
+
+export interface INavProps {
+    user: IUser | null;
+}
