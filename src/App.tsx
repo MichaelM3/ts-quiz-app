@@ -14,8 +14,6 @@ const App: FC = () => {
         }
     }, [])
 
-    console.log(user?.username)
-
     return (
         <div className='App'>
             <Nav user={user} />
