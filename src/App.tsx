@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from 'react'
-import './App.css'
 import { IUser, isUser } from './interfaces'
 import Nav from './components/Nav'
 
@@ -15,8 +14,9 @@ const App: FC = () => {
     }, [])
 
     return (
-        <div className='App'>
+        <div className='flex flex-col items-center w-full p-4'>
             <Nav user={user} />
+            <hr className='w-full' />
         </div>
     )
 }
