@@ -6,7 +6,7 @@ export interface IUser {
 }
 
 export const isUser = (foundUser: unknown): foundUser is string => {
-    if (foundUser !== null) {
+    if (foundUser !== null && typeof foundUser === "string") {
         return true
     }
     return false
