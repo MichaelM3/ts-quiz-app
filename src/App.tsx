@@ -2,7 +2,6 @@ import { FC, useEffect, useState } from 'react'
 import './App.css'
 import { IUser, isUser } from './interfaces'
 import Nav from './components/Nav'
-import { Grid, Divider } from 'semantic-ui-react'
 
 const App: FC = () => {
     const [user, setUser] = useState<IUser | null>(null)
