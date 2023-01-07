@@ -16,10 +16,7 @@ const App: FC = () => {
 
     return (
         <div className='App'>
-            <Grid divided="vertically">
-                <Nav user={user} />
-                <Divider />
-            </Grid>
+            <Nav user={user} />
         </div>
     )
 }
