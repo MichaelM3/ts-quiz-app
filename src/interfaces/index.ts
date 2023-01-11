@@ -15,6 +15,15 @@ export const isUser = (foundUser: unknown): foundUser is string => {
 // Test User
 export const newUser: IUser = { username: "Mizzike", firstName: "Michael", lastName: "Munz", age: 28 }
 
+export interface IQuestionObj {
+    id: number
+    category: string;
+    question: string;
+    correctAnswer: string;
+    incorrectAnswers: string[];
+    tags?: string[];
+}
+
 export interface INavProps {
     user: IUser | null;
 }

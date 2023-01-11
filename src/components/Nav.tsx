@@ -8,7 +8,10 @@ const Nav: FC<INavProps> = ({ user }) => {
             { user ?
                 <h2>Welcome {user.username}!</h2>
                 :
-                null
+                <span>
+                    <a href="">Login</a>
+                    <a href="">Register</a>
+                </span> 
             }
         </div>
     )
