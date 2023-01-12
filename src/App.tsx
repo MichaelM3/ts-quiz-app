@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react'
 import { IUser, isUser, IQuestionObj, IOption } from './interfaces'
 import Nav from './components/Nav'
+import QuizContainer from './components/QuizContainer'
 
 const App: FC = () => {
     const [user, setUser] = useState<IUser | null>(null)
@@ -25,6 +26,9 @@ const App: FC = () => {
         try {
             const res = await fetch(`https://the-trivia-api.com/api/questions?limit=20&categories=${category}`)
             const data = await res.json()
+            const shuffledData = data.map(questionObj: IQuestionObj => {
+                questionObjs.choices: [...questionObj.incorrectAnswers, questionObjs.realAnswer] 
+            })
             setQuestions(data)
         } catch (err) {
             alert(err)
@@ -44,12 +48,17 @@ const App: FC = () => {
         <div className='flex flex-col items-center w-full p-4'>
             <Nav user={user} />
             <hr className='w-full' />
-            <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                {options.map((option) => (
-                    <option value={option.value}>{option.name}</option>
-                ))}
-            </select>
-            <button onClick={fetchQuizData}>Submit</button>
+            <div className='flex m-4'>
+                <select value={category} onChange={(e) => setCategory(e.target.value)}>
+                    {options.map((option) => (
+                        <option value={option.value}>{option.name}</option>
+                    ))}
+                </select>
+                <button onClick={fetchQuizData} className="bg-white text-slate-500 p-2 rounded-r-lg">
+                    Submit
+                </button>
+            </div>
+            <QuizContainer questionObjs={questions} />
         </div>
     )
 }

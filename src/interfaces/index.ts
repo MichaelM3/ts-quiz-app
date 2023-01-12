@@ -32,3 +32,11 @@ export interface IQuestionObj {
 export interface INavProps {
     user: IUser | null;
 }
+
+export interface IQuizContainerProps {
+    questionObjs: IQuestionObj[];
+}
+
+export interface IQuestionProps {
+    question: string;
+}
