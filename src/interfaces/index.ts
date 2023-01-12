@@ -1,3 +1,8 @@
+export interface IOption {
+    name: string;
+    value: string;
+}
+
 export interface IUser {
     username: string;
     firstName: string;
