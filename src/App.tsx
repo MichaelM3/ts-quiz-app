@@ -22,12 +22,12 @@ const App: FC = () => {
         { name: "Sports & Leisure", value: "sports_and_leisure" },
     ]
 
-    const fetchQuizData = async () => {
+    const fetchQuizData = async (): <Promise>void => {
         try {
             const res = await fetch(`https://the-trivia-api.com/api/questions?limit=20&categories=${category}`)
             const data = await res.json()
-            const shuffledData = data.map(questionObj: IQuestionObj => {
-                questionObjs.choices: [...questionObj.incorrectAnswers, questionObjs.realAnswer] 
+            const shuffledData = data.map((questionObj: IQuestionObj) => {
+                questionObj.choices: [...questionObj.incorrectAnswers, questionObj.correctAnswer] 
             })
             setQuestions(data)
         } catch (err) {

@@ -27,6 +27,7 @@ export interface IQuestionObj {
     correctAnswer: string;
     incorrectAnswers: string[];
     tags?: string[];
+    choices: string[];
 }
 
 export interface INavProps {
