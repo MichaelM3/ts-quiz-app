@@ -20,7 +20,7 @@ export const isUser = (foundUser: unknown): foundUser is string => {
 // Test User
 export const newUser: IUser = { username: "Mizzike", firstName: "Michael", lastName: "Munz", age: 28 }
 
-export interface IQuestionObj {
+export interface IQuestionObject {
     id: number
     category: string;
     question: string;
@@ -35,9 +35,17 @@ export interface INavProps {
 }
 
 export interface IQuizContainerProps {
-    questionObjs: IQuestionObj[];
+    questionObjects: IQuestionObject[];
 }
 
 export interface IQuestionProps {
     question: string;
+}
+
+export interface IChoiceContainerProps {
+    choices: string[];
+}
+
+export interface IChoiceProps {
+    choice: string;
 }

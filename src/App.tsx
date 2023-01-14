@@ -1,11 +1,11 @@
 import { FC, useEffect, useState } from 'react'
-import { IUser, isUser, IQuestionObj, IOption } from './interfaces'
+import { IUser, isUser, IQuestionObject, IOption } from './interfaces'
 import Nav from './components/Nav'
 import QuizContainer from './components/QuizContainer'
 
 const App: FC = () => {
     const [user, setUser] = useState<IUser | null>(null)
-    const [questions, setQuestions] = useState<IQuestionObj[]>([])
+    const [questionObjects, setQuestionObjects] = useState<IQuestionObject[]>([])
     const [category, setCategory] = useState<string>("general_knowledge")
     // localStorage.setItem("user", JSON.stringify(newUser))
 
@@ -22,14 +22,14 @@ const App: FC = () => {
         { name: "Sports & Leisure", value: "sports_and_leisure" },
     ]
 
-    const fetchQuizData = async (): <Promise>void => {
+    const fetchQuizData = async () => {
         try {
             const res = await fetch(`https://the-trivia-api.com/api/questions?limit=20&categories=${category}`)
             const data = await res.json()
-            const shuffledData = data.map((questionObj: IQuestionObj) => {
-                questionObj.choices: [...questionObj.incorrectAnswers, questionObj.correctAnswer] 
+            data.map((questionObj: IQuestionObject) => {
+                questionObj.choices = [...questionObj.incorrectAnswers, questionObj.correctAnswer] 
             })
-            setQuestions(data)
+            setQuestionObjects(data)
         } catch (err) {
             alert(err)
         }
@@ -42,23 +42,21 @@ const App: FC = () => {
         }
     }, [])
 
-    console.log(questions)
-
     return (
         <div className='flex flex-col items-center w-full p-4'>
             <Nav user={user} />
             <hr className='w-full' />
             <div className='flex m-4'>
                 <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                    {options.map((option) => (
-                        <option value={option.value}>{option.name}</option>
+                    {options.map((option:IOption, i: number) => (
+                        <option key={i} value={option.value}>{option.name}</option>
                     ))}
                 </select>
                 <button onClick={fetchQuizData} className="bg-white text-slate-500 p-2 rounded-r-lg">
                     Submit
                 </button>
             </div>
-            <QuizContainer questionObjs={questions} />
+            <QuizContainer questionObjects={questionObjects} />
         </div>
     )
 }
