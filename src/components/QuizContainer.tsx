@@ -13,9 +13,9 @@ const QuizContainer: FC<IQuizContainerProps> = ({ questionObjects }) => {
     console.log(questionObjects)
 
     return (
-        <div>
+        <div className='m-20 h-full'>
             {questionObjects.length > 0 ?
-                <div className='flex flex-col'>
+                <div className='flex flex-col items-center space-y-11'>
                     <Question question={questionObjects[currentQuestion].question} />
                     <ChoiceContainer choices={questionObjects[currentQuestion].choices} />
                 </div>

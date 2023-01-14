@@ -43,7 +43,7 @@ const App: FC = () => {
     }, [])
 
     return (
-        <div className='flex flex-col items-center w-full p-4'>
+        <div className='flex flex-col items-center w-full p-4 h-screen'>
             <Nav user={user} />
             <hr className='w-full' />
             <div className='flex m-4'>
