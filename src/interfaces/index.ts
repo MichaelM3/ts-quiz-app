@@ -44,8 +44,10 @@ export interface IQuestionProps {
 
 export interface IChoiceContainerProps {
     choices: string[];
+    checkAnswer: (answer: string) => void;
 }
 
 export interface IChoiceProps {
     choice: string;
+    checkAnswer: (answer: string) => void;
 }

@@ -13,7 +13,7 @@ module.exports = {
                 }
             },
             animation: {
-                wiggle: 'wiggle .35s ease-in-out 1',
+                wiggle: 'wiggle .35s ease-in-out 1.5',
             }
         },
         fontFamily: {
