@@ -2,11 +2,14 @@ import { FC, useEffect, useState } from 'react'
 import { IUser, isUser, IQuestionObject, IOption } from './interfaces'
 import Nav from './components/Nav'
 import QuizContainer from './components/QuizContainer'
+import ResultsContainer from './components/ResultsContainer'
 
 const App: FC = () => {
     const [user, setUser] = useState<IUser | null>(null)
     const [questionObjects, setQuestionObjects] = useState<IQuestionObject[]>([])
     const [category, setCategory] = useState<string>("general_knowledge")
+    const [score, setScore] = useState<number>(0)
+    const [currentQuestion, setCurrentQuestion] = useState<number>(0)
     // localStorage.setItem("user", JSON.stringify(newUser))
 
     const options: IOption[] = [
@@ -27,7 +30,7 @@ const App: FC = () => {
             const res = await fetch(`https://the-trivia-api.com/api/questions?limit=20&categories=${category}`)
             const data = await res.json()
             data.map((questionObj: IQuestionObject) => {
-                questionObj.choices = [...questionObj.incorrectAnswers, questionObj.correctAnswer] 
+                questionObj.choices = [...questionObj.incorrectAnswers, questionObj.correctAnswer]
             })
             setQuestionObjects(data)
         } catch (err) {
@@ -48,7 +51,7 @@ const App: FC = () => {
             <hr className='w-full' />
             <div className='flex m-4'>
                 <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                    {options.map((option:IOption, i: number) => (
+                    {options.map((option: IOption, i: number) => (
                         <option key={i} value={option.value}>{option.name}</option>
                     ))}
                 </select>
@@ -56,7 +59,10 @@ const App: FC = () => {
                     Submit
                 </button>
             </div>
-            <QuizContainer questionObjects={questionObjects} />
+            <div className='flex justify-evenly w-full'>
+                <QuizContainer questionObjects={questionObjects} currentQuestion={currentQuestion} score={score} setScore={setScore} setCurrentQuestion={setCurrentQuestion} />
+                <ResultsContainer score={score} currentQuestion={currentQuestion} />
+            </div>
         </div>
     )
 }

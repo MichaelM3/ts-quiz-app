@@ -36,6 +36,10 @@ export interface INavProps {
 
 export interface IQuizContainerProps {
     questionObjects: IQuestionObject[];
+    score: number;
+    currentQuestion: number;
+    setScore: (newScore: number) => void;
+    setCurrentQuestion: (newScore: number) => void;
 }
 
 export interface IQuestionProps {
@@ -50,4 +54,9 @@ export interface IChoiceContainerProps {
 export interface IChoiceProps {
     choice: string;
     checkAnswer: (answer: string) => void;
+}
+
+export interface IResultsContainerProps {
+    score: number;
+    currentQuestion: number;
 }
