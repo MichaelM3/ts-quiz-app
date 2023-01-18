@@ -6,10 +6,11 @@ import ResultsContainer from './components/ResultsContainer'
 
 const App = () => {
     const [user, setUser] = useState<IUser | null>(null)
+    const [quizStarted, setQuizStarted] = useState<boolean>(false)
     const [questionObjects, setQuestionObjects] = useState<IQuestionObject[]>([])
+    const [currentQuestionObect, setCurrentQuestionObject] = useState<IQuestionObject | null>(null)
     const [category, setCategory] = useState<string>("general_knowledge")
     const [score, setScore] = useState<number>(0)
-    const [currentQuestion, setCurrentQuestion] = useState<number>(0)
     // localStorage.setItem("user", JSON.stringify(newUser))
 
     const options: IOption[] = [
@@ -59,7 +60,7 @@ const App = () => {
                     Submit
                 </button>
             </div>
-            <div className='flex justify-evenly w-full'>
+            <div className='flex justify-evenly h-full  w-full'>
                 <QuizContainer questionObjects={questionObjects} currentQuestion={currentQuestion} score={score} setScore={setScore} setCurrentQuestion={setCurrentQuestion} />
                 <ResultsContainer score={score} currentQuestion={currentQuestion} />
             </div>
