@@ -1,8 +1,7 @@
-import { FC } from 'react'
-import { IChoiceContainerProps } from '../interfaces'
+import { IChoiceContainerProps } from '../interfaces/props'
 import Choice from './Choice'
 
-const ChoiceContainer: FC<IChoiceContainerProps> = ({ choices, checkAnswer }) => {
+const ChoiceContainer = ({ choices, checkAnswer }: IChoiceContainerProps) => {
     
     return (
         <div className='flex flex-col items-start space-y-11 bg-slate-400 rounded-3xl p-10 w-1/2'>

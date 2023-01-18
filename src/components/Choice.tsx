@@ -1,8 +1,8 @@
-import { FC, MouseEvent } from 'react'
+import { MouseEvent } from 'react'
 
-import { IChoiceProps } from '../interfaces'
+import { IChoiceProps } from '../interfaces/props'
 
-const Choice: FC<IChoiceProps> = ({ choice, checkAnswer }) => {
+const Choice = ({ choice, checkAnswer }: IChoiceProps) => {
 
     const handleClick = (e: MouseEvent<HTMLSpanElement>): void => {
         const target = e.target as HTMLSpanElement

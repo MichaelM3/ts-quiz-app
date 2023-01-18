@@ -1,10 +1,10 @@
-import { FC, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { IUser, isUser, IQuestionObject, IOption } from './interfaces'
 import Nav from './components/Nav'
 import QuizContainer from './components/QuizContainer'
 import ResultsContainer from './components/ResultsContainer'
 
-const App: FC = () => {
+const App = () => {
     const [user, setUser] = useState<IUser | null>(null)
     const [questionObjects, setQuestionObjects] = useState<IQuestionObject[]>([])
     const [category, setCategory] = useState<string>("general_knowledge")

@@ -1,9 +1,8 @@
-import { FC } from 'react'
-import { IQuizContainerProps } from '../interfaces'
+import { IQuizContainerProps } from '../interfaces/props'
 import ChoiceContainer from './ChoiceContainer'
 import Question from './Question'
 
-const QuizContainer: FC<IQuizContainerProps> = ({ questionObjects, score, setScore, currentQuestion, setCurrentQuestion }) => {
+const QuizContainer = ({ questionObjects, score, setScore, currentQuestion, setCurrentQuestion }: IQuizContainerProps) => {
 
     const checkAnswer = (answer: string): void => {
         if (answer === questionObjects[currentQuestion].correctAnswer) {

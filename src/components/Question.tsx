@@ -1,7 +1,6 @@
-import { FC } from 'react'
-import { IQuestionProps } from '../interfaces'
+import { IQuestionProps } from '../interfaces/props'
 
-const Question: FC<IQuestionProps> = ({ question }) => {
+const Question = ({ question }: IQuestionProps) => {
     return (
         <div>
             <h2 className='text-6xl font-display'>{question}</h2>
