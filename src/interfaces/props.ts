@@ -1,13 +1,15 @@
+import { IUser, IQuestionObject } from './index'
+
 export interface INavProps {
     user: IUser | null;
 }
 
 export interface IQuizContainerProps {
-    questionObjects: IQuestionObject[];
     score: number;
-    currentQuestion: number;
+    questionObject: IQuestionObject;
+    currentQuestionIndex: number;
     setScore: (newScore: number) => void;
-    setCurrentQuestion: (newScore: number) => void;
+    setCurrentQuestionIndex: (newScore: number) => void;
 }
 
 export interface IQuestionProps {
@@ -26,5 +28,5 @@ export interface IChoiceProps {
 
 export interface IResultsContainerProps {
     score: number;
-    currentQuestion: number;
+    currentQuestionIndex: number;
 }
