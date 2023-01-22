@@ -1,7 +1,11 @@
 import { IUser, IQuestionObject } from './index'
 
-export interface INavProps {
+export interface IHeaderProps {
     user: IUser | null;
+}
+
+export interface ICategoryFormProps {
+    fetchQuizData: (category: string) => void;
 }
 
 export interface IQuizContainerProps {

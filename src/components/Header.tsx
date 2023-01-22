@@ -1,8 +1,8 @@
-import { INavProps } from '../interfaces/props'
+import { IHeaderProps } from '../interfaces/props'
 
-const Nav = ({ user }: INavProps) => {
+const Header = ({ user }: IHeaderProps) => {
     return (
-        <div className='flex justify-between w-full p-3'>
+        <header className='flex justify-between w-full p-3'>
             <h1 className='text-xl font-bold'>Quiz App!</h1>
             { user ?
                 <h2>Welcome {user.username}!</h2>
@@ -12,7 +12,7 @@ const Nav = ({ user }: INavProps) => {
                     <a href="">Register</a>
                 </span> 
             }
-        </div>
+        </header>
     )
 }
-export default Nav
+export default Header
